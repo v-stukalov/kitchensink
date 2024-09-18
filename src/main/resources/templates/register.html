@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome to Spring Boot!</title>
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+
+<form action="#" th:action="@{/register}" th:object="${member}" method="post">
+    <h2>Member Registration (register.html)</h2>
+    <p>Enforces annotation-based constraints defined on the model class.</p>
+
+    <table>
+        <tr>
+            <td><label for="name">Name:</label></td>
+            <td><input type="text" id="name" th:field="*{name}"/></td>
+            <td><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid"></span></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="text" id="email" th:field="*{email}"/></td>
+            <td><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid"></span></td>
+        </tr>
+        <tr>
+            <td><label for="phoneNumber">Phone #:</label></td>
+            <td><input type="text" id="phoneNumber" th:field="*{phoneNumber}"/></td>
+            <td><span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="invalid"></span>
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        <button type="submit">Register</button>
+    </p>
+    <div class="messages">
+        <span th:if="${#fields.hasErrors()}"></span>
+        <!--        <span th:if="${#fields.hasMessages()}" class="valid"></span>-->
+    </div>
+</form>
+</body>
+</html>

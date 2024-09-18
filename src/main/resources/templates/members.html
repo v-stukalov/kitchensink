@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome to Spring Boot!</title>
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+<h1>Welcome to Spring Boot!</h1>
+
+<div>
+    <p>You have successfully deployed a Spring Boot Application (members.html).</p>
+</div>
+
+<h2>Members</h2>
+<div th:if="${#lists.isEmpty(members)}">
+    <em>No registered members.</em>
+</div>
+<table th:if="${!#lists.isEmpty(members)}" class="simpletablestyle">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone #</th>
+        <th>REST URL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="_member : ${members}">
+        <td th:text="${_member.id}"></td>
+        <td th:text="${_member.name}"></td>
+        <td th:text="${_member.email}"></td>
+        <td th:text="${_member.phoneNumber}"></td>
+        <td><a th:href="@{/rest/members/{id}(id=${_member.id})}">/rest/members/<span th:text="${_member.id}"></span></a>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="5">
+            REST URL for all members: <a th:href="@{/rest/members}">/rest/members</a>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+<a href="/register">register new member</a>
+</body>
+</html>
