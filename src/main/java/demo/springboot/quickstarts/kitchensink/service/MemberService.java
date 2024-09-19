@@ -32,4 +32,8 @@ public class MemberService {
     public List<Member> findAll() {
         return memberRepository.findAll();
     }
+
+    public boolean emailAlreadyExists(String email) {
+        return memberRepository.existsByEmail(email);
+    }
 }
