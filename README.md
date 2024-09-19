@@ -9,6 +9,9 @@
 This is a project to migrate a legacy JBoss Java application to a more modern platform.
 Original application to migrate is the ‘kitchensink’ JBoss application available in the Red Hat JBoss EAP Quickstarts GitHub [repository](https://github.com/jboss-developer/jboss-eap-quickstarts/tree/8.0.x/kitchensink). 
 
+Spring Boot is an auto-configured microservice-based web framework that provides built-in features for security and database access.
+
+With Spring boot, we can quickly create stand-alone applications without having to make too many configuration changes.
 
 ## Technologies
 Project is created with:
