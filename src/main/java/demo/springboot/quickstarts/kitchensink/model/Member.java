@@ -2,13 +2,17 @@ package demo.springboot.quickstarts.kitchensink.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @Entity
 @Table(name = "member", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @NoArgsConstructor
+@AllArgsConstructor
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,9 +34,4 @@ public class Member {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    public Member(String name, String email, String phoneNumber) {
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
 }

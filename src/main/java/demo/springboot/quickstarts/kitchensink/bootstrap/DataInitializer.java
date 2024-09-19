@@ -15,11 +15,11 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) {
 //        memberRepository.deleteAll();
 
-        Member member0_ = new Member("John Smith", "john.smith@mailinator.com", "2125551212");
+        Member member0_ = new Member(1L, "John Smith", "john.smith@mailinator.com", "2125551212");
         Member member0 = memberRepository.save(member0_);
         System.out.println(member0.getId());
 
-        Member member1_ = new Member("Jane Smith", "jane.smith@mailinator.com", "2588594032");
+        Member member1_ = new Member(2L, "Jane Smith", "jane.smith@mailinator.com", "2588594032");
         Member member1 = memberRepository.save(member1_);
         System.out.println(member1.getId());
 
