@@ -1,13 +1,9 @@
 package demo.springboot.quickstarts.kitchensink.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Data
 @Entity
@@ -20,10 +16,10 @@ public class Member {
 
     @NotNull
     @Size(min = 1, max = 25)
-    @Pattern(regexp = "[^0-9]*", message = "Must not contain numbers")
+    @Pattern(regexp = "[^0-9]*", message = "must not contain numbers")
     private String name;
 
-    @NotNull
+    @NotEmpty
     @Email
     @Column(unique = true) // email should be unique
     private String email;

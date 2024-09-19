@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,11 +37,15 @@ public class MemberFormController {
             BindingResult result,
             Model model) {
 
+        if (memberService.emailAlreadyExists(member.getEmail())) {
+            FieldError error = new FieldError("member", "email", "unique email violation");
+            result.addError(error);
+        }
         if (result.hasErrors()) {
             return "register";
         }
         memberService.save(member);
         model.addAttribute("members", memberService.findAll());
-        return "members";
+        return "redirect:/";
     }
 }
