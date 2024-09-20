@@ -1,0 +1,21 @@
+Project Presentation Agenda
+
+1. Explore original application
+    1.1 Run application
+    1.2 Test functionality
+    1.3 Brief codebase scanning
+2. Present migration plan (MIGRATION.md)
+3. Introduce migrated application
+   3.1 Brief codebase scanning
+   3.2 Run application
+   3.3 Test web forms
+   3.4 Test REST endpoints
+3. Repositories
+3. Thymeleaf vs JSP
+4. Exception handling
+5. What can be improved
+    - java 21 is not fully by maven-compilator plugin
+    - keep all in one form
+    - put global errors on members.html
+    - more unit tests
+6. MongoDB integration
